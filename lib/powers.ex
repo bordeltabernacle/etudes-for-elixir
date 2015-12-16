@@ -35,9 +35,9 @@ defmodule Powers do
 
   @doc """
   Given x and n, return the nth root of x.
-	This uses the Newton-Raphson method for calculating roots.
-	(See http://en.wikipedia.org/wiki/Newton%27s_method for details).
-	"""
+  This uses the Newton-Raphson method for calculating roots.
+  (See http://en.wikipedia.org/wiki/Newton%27s_method for details).
+  """
 
   @spec nth_root(number(), number()) :: number()
 
@@ -48,15 +48,15 @@ defmodule Powers do
   # estimate - (estimate^n - x) / (n * estimate^(n-1))
   # until the next estimate is within a limit of previous estimate.
 
-	defp nth_root(x, n, estimate) do
+  defp nth_root(x, n, estimate) do
     # IO.puts("Current guess is #{estimate}")
-		f = raise(estimate, n) - x
-		f_prime = n * raise(estimate, n - 1)
-		next = estimate - f / f_prime
-		change = abs(next - estimate)
-		cond do
-			change < 1.0e-8 -> next
-			true -> nth_root(x, n, next)
-		end
-	end
+    f = raise(estimate, n) - x
+    f_prime = n * raise(estimate, n - 1)
+    next = estimate - f / f_prime
+    change = abs(next - estimate)
+    cond do
+      change < 1.0e-8 -> next
+      true -> nth_root(x, n, next)
+    end
+  end
 end

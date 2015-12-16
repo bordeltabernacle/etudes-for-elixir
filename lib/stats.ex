@@ -13,9 +13,9 @@ defmodule Stats do
   def minimum([head|tail]), do: minimum(head, tail)
 
   @spec minimum(integer(), list()) :: integer()
-  defp minimum(min, []),                  do: min
-  defp minimum(min, [h|t]) when h >= min, do: minimum(min, t)
-  defp minimum(min, [h|t]) when h <  min, do: minimum(h, t)
+  defp minimum(low, []),                  do: low
+  defp minimum(low, [h|t]) when h >= low, do: minimum(min, t)
+  defp minimum(low, [h|t]) when h <  low, do: minimum(h, t)
 
   @doc """
   Given a list of numbers, returns the maximum.
@@ -25,9 +25,9 @@ defmodule Stats do
   def maximum([head|tail]), do: maximum(head, tail)
 
   @spec maximum(integer(), list()) :: integer()
-  defp maximum(max, []),                  do: max
-  defp maximum(max, [h|t]) when h <= max, do: maximum(max, t)
-  defp maximum(max, [h|t]) when h >  max, do: maximum(h, t)
+  defp maximum(high, []),                  do: high
+  defp maximum(high, [h|t]) when h <= high, do: maximum(high, t)
+  defp maximum(high, [h|t]) when h >  high, do: maximum(h, t)
 
   @doc """
   Given a list of numbers, returns a list containing

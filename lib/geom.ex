@@ -29,8 +29,8 @@ defmodule Geom do
       :rectangle when a >= 0 and b >= 0 -> a * b
       :triangle  when a >= 0 and b >= 0 -> a * b / 2.0
       :ellipse   when a >= 0 and b >= 0 -> :math.pi() * a * b
-      _                                 -> 0
+      _ -> 0
     end
-	end
+  end
 
 end
