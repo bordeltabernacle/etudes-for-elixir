@@ -34,7 +34,6 @@ defmodule AskArea do
   or unknown.
   """
   @spec char_to_shape(char()) :: atom()
-
   def char_to_shape("R"), do: :rectangle
   def char_to_shape("T"), do: :triangle
   def char_to_shape("E"), do: :ellipse
@@ -44,7 +43,6 @@ defmodule AskArea do
   Offers a prompt and returns a number.
   """
   @spec get_number(String.t()) :: number()
-
   def get_number(prompt) do
     input = IO.gets("Enter #{prompt }> ") |> String.strip
     cond do

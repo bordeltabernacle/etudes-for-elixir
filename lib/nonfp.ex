@@ -20,11 +20,7 @@ defmodule NonFP do
 
   defp generate_tooth(prob_good) do
     num = :random.uniform()
-    if (num < prob_good) do
-      base_depth = 2
-    else
-      base_depth = 3
-    end
+    base_depth = if (num < prob_good), do: 2, else: 3
     generate_tooth(base_depth, 6, [])
   end
 

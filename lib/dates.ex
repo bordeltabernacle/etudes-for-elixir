@@ -13,7 +13,7 @@ defmodule Dates do
   def date_parts(date_string) do
     date_string
     |> String.split("-")
-    |> Enum.map &String.to_integer/1
+    |> Enum.map(&String.to_integer/1)
   end
 
   @doc """
@@ -30,7 +30,7 @@ defmodule Dates do
 
   defp get_days_per_month(year) do
     days_in_feb = cond do
-      is_leap_year?(year) -> 29
+      leap_year?(year) -> 29
       true                -> 28
     end
     [31, days_in_feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -45,9 +45,9 @@ defmodule Dates do
   Returns true if the given year is a leap year,
   and false if not.
   """
-  @spec is_leap_year?(integer()) :: boolean()
+  @spec leap_year?(integer()) :: boolean()
 
-  def is_leap_year?(year) do
+  def leap_year?(year) do
     (rem(year,4) == 0 and rem(year,100) != 0)
     or (rem(year, 400) == 0)
   end

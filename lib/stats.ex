@@ -14,7 +14,7 @@ defmodule Stats do
 
   @spec minimum(integer(), list()) :: integer()
   defp minimum(low, []),                  do: low
-  defp minimum(low, [h|t]) when h >= low, do: minimum(min, t)
+  defp minimum(low, [h|t]) when h >= low, do: minimum(low, t)
   defp minimum(low, [h|t]) when h <  low, do: minimum(h, t)
 
   @doc """
@@ -25,7 +25,7 @@ defmodule Stats do
   def maximum([head|tail]), do: maximum(head, tail)
 
   @spec maximum(integer(), list()) :: integer()
-  defp maximum(high, []),                  do: high
+  defp maximum(high, []),                   do: high
   defp maximum(high, [h|t]) when h <= high, do: maximum(high, t)
   defp maximum(high, [h|t]) when h >  high, do: maximum(h, t)
 
